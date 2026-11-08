@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PeptArm | GBA 2026 poster companion</title>
+<meta name="description" content="PeptArm: a versatile platform for biomolecular condensate engineering. Poster companion page with results, methods, applications and full references.">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PeptArm: a versatile platform for biomolecular condensate engineering">
+<meta property="og:description" content="AI-designed binders and phase-separating peptide arms recruit untagged proteins into synthetic condensates in E. coli and yeast.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='3' y='3' width='58' height='58' rx='14' fill='white' stroke='black' stroke-width='5'/%3E%3Ctext x='10' y='46' font-family='Arial' font-weight='700' font-size='38' fill='%23F25A22'%3EP%3C/text%3E%3Ctext x='33' y='46' font-family='Arial' font-weight='700' font-size='38' fill='%230072BC'%3EA%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#0b0f14; --navy:#042433; --muted:#5b6470;
+  --teal:#008080; --teal-l:#d5ecec; --teal-d:#0b5e5e;
+  --orange:#c94400; --orange-poster:#dc4d01; --orange-l:#fbe2d3; --orange-d:#9a3500;
+  --pept:#f25a22; --arm:#0072bc;
+  --phaseek:#1a6f9c; --binder:#ca7141; --sfgfp:#1cc316; --poi:#00a651;
+  --red:#c00000; --green:#00843d;
+  --comp:#04876a; --exp:#b53f80;
+  --strip:#d2e3f3; --caption:#cbe1f2;
+  --radius:30px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--ink);font-family:Arial,"Helvetica Neue",Helvetica,"Liberation Sans",sans-serif;font-size:17px;line-height:1.55}
+img,svg{max-width:100%;height:auto}
+a{color:var(--arm)}
+:focus-visible{outline:4px solid var(--arm);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+.skip{position:absolute;left:-999px;top:8px;background:#000;color:#fff;padding:8px 14px;border-radius:10px;z-index:100}
+.skip:focus{left:8px}
+sup a{font-weight:700;text-decoration:none;font-size:.78em;padding:0 .12em}
+sup a:hover{text-decoration:underline}
+
+/* ---------- top bar ---------- */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-bottom:3px solid #000}
+.nav .wrap{display:flex;align-items:center;gap:10px;padding:10px 0;overflow-x:auto;scrollbar-width:none}
+.nav .wrap::-webkit-scrollbar{display:none}
+.brand{font-weight:700;font-size:1.3rem;letter-spacing:-.02em;white-space:nowrap;text-decoration:none;margin-right:6px}
+.brand .p{color:var(--pept)} .brand .a{color:var(--arm)}
+.pill{display:inline-block;border:3px solid #000;border-radius:14px;padding:.22em .8em;font-weight:700;font-size:.9rem;color:#000;text-decoration:none;white-space:nowrap;background:#fff;transition:background .15s,color .15s}
+.pill:hover,.pill[aria-current="true"]{background:#000;color:#fff}
+
+/* ---------- hero ---------- */
+.hero{padding:44px 0 8px}
+.titlebar{position:relative;text-align:center;padding:30px 28px 26px}
+.titlebar i{position:absolute;width:30px;height:30px;border:3px solid #000}
+.titlebar i:nth-child(1){left:0;top:0;border-right:0;border-bottom:0;border-radius:26px 0 0 0}
+.titlebar i:nth-child(2){right:0;top:0;border-left:0;border-bottom:0;border-radius:0 26px 0 0}
+.titlebar i:nth-child(3){left:0;bottom:0;border-right:0;border-top:0;border-radius:0 0 0 26px}
+.titlebar i:nth-child(4){right:0;bottom:0;border-left:0;border-top:0;border-radius:0 0 26px 0}
+.eyebrow{margin:0 0 6px;font-size:.88rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+h1{margin:0;font-weight:400;font-size:clamp(3.6rem,15vw,9rem);line-height:.98;letter-spacing:-.035em}
+h1 .p{color:var(--pept)} h1 .a{color:var(--arm)}
+.subtitle{margin:10px auto 0;max-width:38ch;font-weight:700;font-size:clamp(1.2rem,3.2vw,2rem);line-height:1.2}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center;margin-top:26px}
+.authors{margin:0;font-size:clamp(1.1rem,4.4vw,1.35rem)}
+.authors b{font-weight:700}
+.affil{margin:8px 0 0;color:#2b3440;font-size:.98rem}
+.affil b{font-weight:700}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:.5em;border:3px solid #000;border-radius:16px;padding:.55em 1.05em;font-weight:700;font-size:1rem;text-decoration:none;color:#000;background:#fff;box-shadow:4px 4px 0 #000;transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 #000}
+.btn.primary{background:var(--teal);color:#fff}
+.btn[hidden]{display:none}
+.cellfig{margin:0;text-align:center}
+.cellfig{display:grid;gap:10px;justify-items:center}
+.cellfig svg{width:100%;max-width:470px}
+.cellfig figcaption{max-width:46ch}
+.cellfig figcaption{font-size:.92rem;color:var(--muted);margin-top:4px}
+.dot{fill:var(--sfgfp);stroke:#0a7a07;stroke-width:1.5;transform-box:fill-box;transform-origin:center;animation:gather 9s ease-in-out var(--dl) infinite}
+.halo{fill:var(--sfgfp);opacity:0;animation:halo 9s ease-in-out infinite}
+@keyframes gather{0%,12%{transform:translate(0,0)}42%,76%{transform:translate(var(--dx),var(--dy))}100%{transform:translate(0,0)}}
+@keyframes halo{0%,28%{opacity:0}46%,74%{opacity:.3}100%{opacity:0}}
+
+/* ---------- key message strip ---------- */
+.strip{position:relative;background:var(--strip);border-radius:24px;padding:22px 26px;margin:34px 0 0;font-size:clamp(1.02rem,2.2vw,1.35rem);line-height:1.45}
+.strip::before{content:"";position:absolute;left:50%;top:0;width:min(340px,50%);height:4px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,#000,transparent);border-radius:4px}
+.strip p{margin:0}
+.strip p + p{margin-top:6px}
+
+/* ---------- sections, panels, tabs ---------- */
+section{margin:64px 0;scroll-margin-top:70px}
+.panel{position:relative;border:4px solid var(--navy);border-radius:var(--radius);padding:80px 28px 28px;background:#fff;margin-top:34px}
+.panel.ecoli{border-color:var(--teal)}
+.panel.yeast{border-color:var(--orange-poster)}
+.tab{position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:max-content;max-width:calc(100% - 24px);text-align:center;padding:.4em 1.2em;border:4px solid #000;border-radius:18px;background:#fff;font-weight:700;font-size:clamp(1.05rem,2.5vw,1.6rem);line-height:1.2}
+.tab.red{color:var(--red)} .tab.green{color:var(--green)} .tab.orange{color:var(--orange)}
+.tab.fill{color:#fff;font-weight:400}
+.tab.fill.ecoli{background:var(--teal)} .tab.fill.yeast{background:var(--orange)}
+.tab.fill.comp{background:var(--comp)} .tab.fill.exp{background:var(--exp)}
+.tab.big{font-size:clamp(1.3rem,3.2vw,2.2rem)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.panel p{margin:0 0 .8em}
+.panel p:last-child{margin-bottom:0}
+.lead{font-size:1.12rem}
+.note{font-size:.95rem;color:var(--muted)}
+mark{background:none;font-weight:700;color:inherit}
+
+/* ---------- poster figures ---------- */
+.fig{display:block;height:auto;max-width:100%}
+.figgrid{display:grid;grid-template-columns:var(--c1,1fr) var(--c2,1fr);gap:22px 34px;align-items:center;margin:4px 0 20px}
+.figgrid .col{display:grid;gap:12px;justify-items:start;min-width:0}
+.figgrid .col.mid{justify-items:center}
+.figgrid .fig{width:calc(var(--w) / var(--ref) * 100%)}
+.flowrow{display:grid;grid-template-columns:var(--cols);gap:12px;align-items:center;margin:4px 0 20px}
+.flowrow figure{margin:0;text-align:center;min-width:0}
+.flowrow .fig{width:100%;margin-inline:auto}
+.flowrow figcaption{font-weight:700;font-size:1.02rem;margin-top:4px;white-space:nowrap;text-align:center}
+.flowrow .colfig{display:flex;flex-direction:column;align-items:center}
+.flowrow .colfig .fig{width:calc(var(--w) * 86px);margin-inline:auto}
+.arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;font-weight:700;font-size:1.05rem;line-height:1.2}
+.arrow .h{display:block;width:92px;height:20px}
+.arrow .v{display:none;width:20px;height:54px}
+.arrow span:empty{display:none}
+.step{display:contents}
+.badge{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#000;color:#fff;font-weight:700;font-size:.95rem;margin-bottom:6px}
+.cap{margin:8px auto 0;font-size:.97rem;max-width:32ch;text-align:center}
+.howgrid{display:grid;grid-template-columns:1.25fr auto 1fr auto 1fr;gap:6px 14px;align-items:center}
+.howgrid .imgbox{text-align:center}
+.howgrid .arrow{grid-row:1}
+.howgrid .s1>.imgbox{grid-column:1;grid-row:1}.howgrid .s1>.cap{grid-column:1;grid-row:2}
+.howgrid .a1{grid-column:2}
+.howgrid .s2>.imgbox{grid-column:3;grid-row:1}.howgrid .s2>.cap{grid-column:3;grid-row:2}
+.howgrid .a2{grid-column:4}
+.howgrid .s3>.imgbox{grid-column:5;grid-row:1}.howgrid .s3>.cap{grid-column:5;grid-row:2}
+.howgrid .imgbox .fig{margin:0 auto;width:100%}
+
+/* ---------- results ---------- */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.chip{border:2.5px solid currentColor;border-radius:999px;padding:.12em .8em;font-weight:700;font-size:.84rem}
+.ecoli .chip{color:var(--teal)} .yeast .chip{color:var(--orange)}
+
+.caption{background:var(--caption);border-radius:22px;padding:16px 20px;font-size:1.04rem}
+.callout{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-top:26px;border:3px dashed #000;border-radius:22px;padding:16px 20px}
+.callout p{margin:0;flex:1 1 320px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 22px;justify-content:center;margin:22px 0 0;font-size:.9rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend svg{width:34px;height:20px;flex:none}
+
+/* ---------- methods ---------- */
+.mcol{position:relative;border:4px solid var(--navy);border-radius:var(--radius);padding:50px 18px 24px;background:#fff}
+.mstep{text-align:center;font-size:1.12rem;line-height:1.35}
+.mstep b{font-weight:700}
+.mstep small{display:block;margin-top:3px;font-size:.84rem;color:#2b3440}
+.mstep small a{color:inherit}
+.down{display:block;width:22px;height:34px;margin:8px auto}
+.fork{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.host{position:relative;border:3px solid;border-radius:20px;padding:30px 10px 14px;text-align:center;font-size:.98rem;line-height:1.35}
+.host.ecoli{border-color:var(--teal);background:var(--teal-l)}
+.host.yeast{border-color:var(--orange-poster);background:var(--orange-l)}
+.host em{position:absolute;left:50%;top:0;transform:translate(-50%,-50%);padding:.15em .9em;border:3px solid #000;border-radius:12px;color:#fff;font-weight:400;font-size:1.05rem;white-space:nowrap}
+.host.ecoli em{background:var(--teal)} .host.yeast em{background:var(--orange)}
+.host b{display:block}
+.merge{display:block;width:100%;height:40px;margin:2px 0}
+
+.stack{display:grid;gap:8px}
+.apphead{margin:0 0 12px;font-size:1.2rem;line-height:1.25}
+.app + .app{margin-top:40px;padding-top:34px;border-top:3px dashed #c9d2db}
+
+/* ---------- references ---------- */
+.rcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:30px}
+.rcard{display:block;border:3px solid #000;border-radius:22px;padding:16px 18px;text-decoration:none;color:#000;background:#fff;box-shadow:5px 5px 0 #000;transition:transform .12s,box-shadow .12s}
+.rcard:hover{transform:translate(2px,2px);box-shadow:3px 3px 0 #000}
+.rcard .k{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.rcard .t{display:block;font-weight:700;font-size:1.08rem;margin:4px 0 2px}
+.rcard .s{display:block;font-size:.9rem;color:#2b3440}
+.refs{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.refs li{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:start;padding:12px 14px;border-radius:18px;border:2.5px solid transparent;scroll-margin-top:80px}
+.refs li:target{background:var(--strip);border-color:#000}
+.refs .num{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#000;color:#fff;font-weight:700;font-size:.9rem;margin-top:2px}
+.refs .cite{font-size:.98rem}
+.refs .cite i{font-style:italic}
+.refs .cite .doi{display:inline-block;margin-top:2px;word-break:break-all}
+.refs .tag{display:inline-block;margin-left:6px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:2px solid var(--muted);border-radius:999px;padding:0 .6em;vertical-align:1px}
+.copy{border:2.5px solid #000;border-radius:12px;background:#fff;padding:.25em .8em;font:inherit;font-weight:700;font-size:.82rem;cursor:pointer}
+.copy:hover{background:#000;color:#fff}
+.subh{margin:26px 0 10px;font-size:1rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- contact + footer ---------- */
+.contact-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px}
+footer{border-top:4px solid #000;margin-top:70px;padding:26px 0 40px;font-size:.92rem;color:#2b3440}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between}
+footer p{margin:0}
+
+/* ---------- motion + responsive ---------- */
+html.js .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+html.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  html.js .reveal{opacity:1;transform:none;transition:none}
+  .dot{animation:none;transform:translate(var(--dx),var(--dy))}
+  .halo{animation:none;opacity:.3}
+  .btn,.rcard{transition:none}
+}
+@media (max-width:900px){
+  .hero-grid,.grid2{grid-template-columns:1fr}
+  .figgrid{grid-template-columns:1fr;justify-items:center}
+  .figgrid .col,.figgrid .col.mid{justify-items:center;width:100%}
+  .figgrid .fig{width:min(100%, calc(var(--w) * 80px))}
+  .flowrow,.howgrid{grid-template-columns:1fr;justify-items:center;gap:6px}
+  .flowrow figure,.howgrid .imgbox{width:min(100%, 360px)}
+  .flowrow .fig{width:min(100%, calc(var(--w) * 110px))}
+  .flowrow .colfig .fig{width:calc(var(--w) * 110px)}
+  .howgrid .s1>.imgbox,.howgrid .s1>.cap,.howgrid .s2>.imgbox,.howgrid .s2>.cap,.howgrid .s3>.imgbox,.howgrid .s3>.cap,.howgrid .a1,.howgrid .a2{grid-column:1;grid-row:auto}
+  .step{display:contents}
+  .arrow{margin:6px 0}
+  .arrow .h{display:none}
+  .arrow .v{display:block}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .panel{padding:76px 18px 22px;border-radius:24px}
+  .titlebar{padding:24px 14px 20px}
+  .fork{grid-template-columns:1fr;gap:34px}
+  .host{padding-top:34px}
+  .refs li{grid-template-columns:30px 1fr}
+  .refs li .copy{grid-column:2;justify-self:start}
+}
+@media print{.nav,.cellfig,.copy{display:none}.panel,.rcard{box-shadow:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="PeptArm, back to top"><span class="p">Pept</span><span class="a">Arm</span></a>
+    <a class="pill" href="#overview">Overview</a>
+    <a class="pill" href="#results">Results</a>
+    <a class="pill" href="#methods">Methods</a>
+    <a class="pill" href="#applications">Applications</a>
+    <a class="pill" href="#references">References</a>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap" id="top">
+
+  <!-- ===================== HERO ===================== -->
+  <div class="hero">
+    <div class="titlebar">
+      <i></i><i></i><i></i><i></i>
+      <p class="eyebrow">Poster companion &middot; Global Biofoundry Alliance meeting &middot; Paris, 16&ndash;18 Nov 2026</p>
+      <h1><span class="p">Pept</span><span class="a">Arm</span></h1>
+      <p class="subtitle">A versatile platform for biomolecular condensate engineering</p>
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <p class="authors"><b>Amir M. CHERAGHALI</b>, Amir PANDI</p>
+        <p class="affil"><b>INSERM U1338</b> (ERL), Department of Computational, Quantitative and Synthetic Biology (CQSB), <b>UMR 7238</b>, CNRS-Sorbonne Universit&eacute;, France</p>
+        <div class="cta">
+          <a class="btn primary" href="https://doi.org/10.1101/2025.01.27.635039" target="_blank" rel="noopener">Phaseek preprint &rarr;</a>
+          <a class="btn" href="#references">All references</a>
+          <a class="btn" id="posterBtn" href="PeptArm_Poster_GBA.pdf" hidden>Download poster (PDF)</a>
+        </div>
+      </div>
+      <figure class="cellfig">
+        <svg viewBox="20 70 480 205" role="img" aria-labelledby="cellTitle cellDesc">
+          <title id="cellTitle">Animation: sfGFP gathering at the poles of an E. coli cell</title>
+          <desc id="cellDesc">Green dots spread through a bacterial cell move to the two cell poles and form condensates, then disperse again.</desc>
+          <rect x="40" y="95" width="440" height="120" rx="60" fill="#d5ecec" stroke="#008080" stroke-width="6"/>
+          <circle class="halo" cx="112" cy="155" r="40"/>
+          <circle class="halo" cx="408" cy="155" r="40"/>
+          <circle class="dot" cx="127" cy="145" r="7.5" style="--dx:-8px;--dy:-8px;--dl:0.52s"/>
+          <circle class="dot" cx="132" cy="163" r="7.5" style="--dx:-42px;--dy:-3px;--dl:0.45s"/>
+          <circle class="dot" cx="170" cy="132" r="7.5" style="--dx:-66px;--dy:24px;--dl:0.38s"/>
+          <circle class="dot" cx="164" cy="162" r="7.5" style="--dx:-51px;--dy:0px;--dl:0.64s"/>
+          <circle class="dot" cx="207" cy="133" r="7.5" style="--dx:-93px;--dy:17px;--dl:0.43s"/>
+          <circle class="dot" cx="195" cy="162" r="7.5" style="--dx:-78px;--dy:-12px;--dl:0.15s"/>
+          <circle class="dot" cx="249" cy="147" r="7.5" style="--dx:-143px;--dy:27px;--dl:0.38s"/>
+          <circle class="dot" cx="244" cy="166" r="7.5" style="--dx:-116px;--dy:-16px;--dl:0.68s"/>
+          <circle class="dot" cx="286" cy="136" r="7.5" style="--dx:117px;--dy:23px;--dl:0.10s"/>
+          <circle class="dot" cx="272" cy="168" r="7.5" style="--dx:134px;--dy:-15px;--dl:0.47s"/>
+          <circle class="dot" cx="315" cy="136" r="7.5" style="--dx:98px;--dy:9px;--dl:0.22s"/>
+          <circle class="dot" cx="318" cy="176" r="7.5" style="--dx:112px;--dy:-14px;--dl:0.02s"/>
+          <circle class="dot" cx="361" cy="147" r="7.5" style="--dx:66px;--dy:10px;--dl:0.26s"/>
+          <circle class="dot" cx="358" cy="162" r="7.5" style="--dx:56px;--dy:-6px;--dl:0.67s"/>
+          <circle class="dot" cx="390" cy="145" r="7.5" style="--dx:38px;--dy:2px;--dl:0.24s"/>
+          <circle class="dot" cx="393" cy="172" r="7.5" style="--dx:16px;--dy:-22px;--dl:0.52s"/>
+          <text x="260" y="258" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="22" font-style="italic" font-weight="700" fill="#0b5e5e">E. coli</text>
+        </svg>
+        <svg viewBox="40 30 440 268" role="img" aria-labelledby="yTitle yDesc">
+          <title id="yTitle">Animation: sfGFP gathering into a condensate in a yeast cell</title>
+          <desc id="yDesc">Green dots spread through the cytoplasm of a budding yeast cell move together into one condensate next to the nucleus, then disperse again.</desc>
+          <circle cx="368" cy="92" r="40" fill="#fbe2d3" stroke="#dc4d01" stroke-width="6"/>
+          <circle cx="260" cy="160" r="95" fill="#fbe2d3" stroke="#dc4d01" stroke-width="6"/>
+          <circle cx="235" cy="180" r="42" fill="#f5c7ab" stroke="#dc4d01" stroke-width="4"/>
+          <path d="M214 170 H256" stroke="#7b8189" stroke-width="8" stroke-linecap="round"/><path d="M220 170 H236" stroke="#1a6f9c" stroke-width="8" stroke-linecap="round"/><path d="M236 170 H252" stroke="#ca7141" stroke-width="8" stroke-linecap="round"/>
+          <path d="M214 192 H256" stroke="#7b8189" stroke-width="8" stroke-linecap="round"/><path d="M228 192 H242" stroke="#1cc316" stroke-width="8" stroke-linecap="round"/>
+          <circle class="halo" cx="302" cy="124" r="36"/>
+          <circle class="dot" cx="309" cy="169" r="7.5" style="--dx:-6px;--dy:-31px;--dl:0.41s"/>
+          <circle class="dot" cx="261" cy="127" r="7.5" style="--dx:38px;--dy:-2px;--dl:0.41s"/>
+          <circle class="dot" cx="274" cy="101" r="7.5" style="--dx:14px;--dy:28px;--dl:0.28s"/>
+          <circle class="dot" cx="307" cy="126" r="7.5" style="--dx:-5px;--dy:-10px;--dl:0.24s"/>
+          <circle class="dot" cx="217" cy="97" r="7.5" style="--dx:75px;--dy:25px;--dl:0.10s"/>
+          <circle class="dot" cx="185" cy="141" r="7.5" style="--dx:124px;--dy:-3px;--dl:0.08s"/>
+          <circle class="dot" cx="332" cy="147" r="7.5" style="--dx:-30px;--dy:-12px;--dl:0.64s"/>
+          <circle class="dot" cx="301" cy="208" r="7.5" style="--dx:-12px;--dy:-77px;--dl:0.21s"/>
+          <circle class="dot" cx="334" cy="182" r="7.5" style="--dx:-36px;--dy:-64px;--dl:0.32s"/>
+          <circle class="dot" cx="265" cy="231" r="7.5" style="--dx:33px;--dy:-114px;--dl:0.14s"/>
+          <circle class="dot" cx="212" cy="125" r="7.5" style="--dx:93px;--dy:11px;--dl:0.38s"/>
+          <circle class="dot" cx="283" cy="143" r="7.5" style="--dx:7px;--dy:-13px;--dl:0.23s"/>
+          <circle class="dot" cx="309" cy="97" r="7.5" style="--dx:-13px;--dy:30px;--dl:0.02s"/>
+          <circle class="dot" cx="246" cy="91" r="7.5" style="--dx:53px;--dy:28px;--dl:0.51s"/>
+          <circle class="dot" cx="238" cy="234" r="7.5" style="--dx:67px;--dy:-100px;--dl:0.21s"/>
+          <circle class="dot" cx="181" cy="168" r="7.5" style="--dx:129px;--dy:-53px;--dl:0.22s"/>
+          <text x="260" y="292" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="22" font-style="italic" font-weight="700" fill="#9a3500">S. cerevisiae</text>
+        </svg>
+        <figcaption>sfGFP (green) gathers into condensates once a PeptArm is expressed: at the cell poles in <i>E. coli</i>, as a bright spot in yeast.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- ===================== OVERVIEW ===================== -->
+  <div class="strip reveal">
+    <p><b>Biomolecular condensates</b> are membrane-less compartments formed by liquid&ndash;liquid phase separation (LLPS) that organize proteins.</p>
+    <p><b>Key message:</b> PeptArm recruits untagged proteins into synthetic condensates in bacteria and yeast, with no genome editing and no tags.</p>
+  </div>
+
+  <section id="overview" aria-labelledby="ov-h">
+    <h2 id="ov-h" class="sr" style="position:absolute;left:-9999px">Overview</h2>
+    <div class="grid2">
+      <div class="panel reveal">
+        <h3 class="tab red">Bottleneck: Protein capture by genome editing</h3>
+        <p class="lead">Traditional condensate engineering requires fusing condensate-forming tags to proteins, which can disrupt their <mark>structure</mark> and <mark>function</mark>.</p>
+        <p>For endogenous proteins it is even more challenging, since it requires <mark>genome editing to insert tags</mark><sup><a href="#ref-1">1</a></sup>: a labor- and time-intensive approach that can also interfere with gene expression.</p>
+      </div>
+      <div class="panel reveal">
+        <h3 class="tab green">Solution: Binding coupled to phase separation</h3>
+        <p class="lead"><mark>PeptArm</mark> is a modular, <mark>bifunctional design</mark> that bypasses genome editing.</p>
+        <p>A specific <mark>Peptide Binder</mark> (the hook) is fused to a <mark>Phase-Separating (PS) Arm</mark> (the anchor), designed by our ML model Phaseek<sup><a href="#ref-2">2</a></sup>. PeptArms recruit target proteins into membrane-less condensates for <mark>non-covalent, tag-free spatial control</mark> via LLPS.</p>
+        <p class="note">Binders tested: NbALFA<sup><a href="#ref-6">6</a></sup>, SYNZIP<sup><a href="#ref-7">7</a></sup> and de novo RFdiffusion binders<sup><a href="#ref-3">3</a></sup> (the latter shown on the poster).</p>
+      </div>
+    </div>
+
+    <div class="panel reveal" style="margin-top:46px">
+      <h3 class="tab big">How PeptArm works</h3>
+      <div class="howgrid">
+        <div class="step s1"><div class="imgbox"><span class="badge">1</span><img class="fig" src="assets/poster/sch-1.webp" width="1890" height="860" style="--w:9.45" alt="A phase-separating peptide arm fused to a binder, and a protein of interest." loading="lazy" decoding="async"></div><p class="cap">The binder (hook) is fused to a phase-separating arm (anchor).</p></div>
+        <div class="arrow a1" aria-hidden="true"><span>Binding</span><svg class="h" viewBox="0 0 92 20"><path d="M2 10 H82" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M72 3 L85 10 L72 17" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="v" viewBox="0 0 20 54"><path d="M10 2 V44" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M3 35 L10 48 L17 35" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="step s2"><div class="imgbox"><span class="badge">2</span><img class="fig" src="assets/poster/sch-2.webp" width="1219" height="620" style="--w:6.1" alt="The binder bound to the protein of interest." loading="lazy" decoding="async"></div><p class="cap">The binder captures the target protein, with no tag on the target.</p></div>
+        <div class="arrow a2" aria-hidden="true"><span>Phase separation</span><svg class="h" viewBox="0 0 92 20"><path d="M2 10 H82" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M72 3 L85 10 L72 17" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="v" viewBox="0 0 20 54"><path d="M10 2 V44" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M3 35 L10 48 L17 35" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="step s3"><div class="imgbox"><span class="badge">3</span><img class="fig" src="assets/poster/sch-3.webp" width="1540" height="700" style="--w:7.7" alt="An E. coli cell and a S. cerevisiae cell, each with a condensate." loading="lazy" decoding="async"></div><p class="cap">Multivalent arms phase-separate the complex into a condensate, in bacteria and in yeast.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RESULTS ===================== -->
+  <section id="results" aria-labelledby="res-h">
+    <h2 id="res-h" class="sr" style="position:absolute;left:-9999px">Results</h2>
+    <div class="stack">
+      <div class="panel ecoli reveal">
+        <h3 class="tab fill ecoli">Prokaryote, Gram-negative bacterium: <i>Escherichia coli</i></h3>
+        <div class="chips"><span class="chip">BL21*</span><span class="chip">T7p &middot; IPTG</span><span class="chip">2 plasmids</span></div>
+        <div class="figgrid" style="--c1:4.75fr;--c2:7.25fr">
+          <div class="col" style="--ref:4.75"><img class="fig" src="assets/poster/ecoli-row1.webp" width="950" height="300" style="--w:4.75" alt="PeptArm cassette in E. coli: inducible T7 promoter, RBS, Phaseek fused to the RFdiffusion binder, terminator." loading="lazy" decoding="async"><img class="fig" src="assets/poster/ecoli-row2.webp" width="800" height="279" style="--w:4.0" alt="Untagged reporter cassette in E. coli: constitutive J23101 promoter, RBS, sfGFP, terminator." loading="lazy" decoding="async"></div>
+          <div class="col mid" style="--ref:7.25"><img class="fig" src="assets/poster/ecoli-cell.webp" width="490" height="260" style="--w:2.45" alt="An E. coli cell carrying the two plasmids." loading="lazy" decoding="async"><img class="fig" src="assets/poster/ecoli-scheme.webp" width="1450" height="309" style="--w:7.25" alt="The PS arm with its binder captures the target protein; after phase separation a condensate sits in the E. coli cell." loading="lazy" decoding="async"></div>
+        </div>
+        <p class="caption">Three PS peptide arms (<b>Phaseek</b>), each fused to the <b>RFdiffusion binder</b>, recruit <b>untagged sfGFP</b> into polar condensates, while the control without a PS arm stays diffuse, confirming tag-free capture in a prokaryote.</p>
+      </div>
+      <div class="panel yeast reveal">
+        <h3 class="tab fill yeast">Eukaryote, budding yeast: <i>Saccharomyces cerevisiae</i></h3>
+        <div class="chips"><span class="chip">BY4700 / BY4709</span><span class="chip">GAL1p &middot; galactose</span><span class="chip">Genome-integrated</span></div>
+        <div class="figgrid" style="--c1:5.25fr;--c2:7.55fr">
+          <div class="col" style="--ref:5.25"><img class="fig" src="assets/poster/yeast-row1.webp" width="1050" height="300" style="--w:5.25" alt="PeptArm cassette in yeast: inducible GAL1 promoter, Phaseek fused to the RFdiffusion binder, terminator, flanked by chromosome." loading="lazy" decoding="async"><img class="fig" src="assets/poster/yeast-row2.webp" width="820" height="279" style="--w:4.1" alt="Untagged reporter cassette in yeast: constitutive TPI1 promoter driving sfGFP, flanked by chromosome." loading="lazy" decoding="async"></div>
+          <div class="col mid" style="--ref:7.55"><img class="fig" src="assets/poster/yeast-cell.webp" width="400" height="347" style="--w:2.0" alt="A yeast cell with the constructs integrated in its genome." loading="lazy" decoding="async"><img class="fig" src="assets/poster/yeast-scheme.webp" width="1509" height="480" style="--w:7.55" alt="The PS arm with its binder captures the target protein; after phase separation a condensate sits in the yeast cell." loading="lazy" decoding="async"></div>
+        </div>
+        <p class="caption">In yeast, the same <b>AI-designed binder</b> strategy recruits <b>untagged sfGFP</b> into discrete condensates (arrowheads), while the control stays diffuse, showing the design carries over to a eukaryote.</p>
+      </div>
+    </div>
+    <div class="callout reveal">
+      <p><b>Microscopy and structure.</b> The phase-contrast, GFP and merged panels (2&nbsp;&micro;m scale bars) and the AlphaFold prediction of the sfGFP&ndash;binder&ndash;Phaseek complex are shown on the poster.</p>
+      <a class="btn" id="posterBtn2" href="PeptArm_Poster_GBA.pdf" hidden>See the poster</a>
+    </div>
+    <p class="legend" aria-label="How to read the construct diagrams">
+      <span><svg viewBox="0 0 34 20" aria-hidden="true"><path d="M3 18 V6 H17" stroke="#1f2937" stroke-width="2.4" fill="none"/><path d="M15 2 L23 6 L15 10 Z" fill="#1f2937"/></svg>Promoter</span>
+      <span><svg viewBox="0 0 34 20" aria-hidden="true"><path d="M5 17 A9 9 0 0 1 23 17 Z" fill="#d9dde2" stroke="#1f2937" stroke-width="2"/></svg>RBS</span>
+      <span><svg viewBox="0 0 34 20" aria-hidden="true"><path d="M2 4 H22 L30 10 L22 16 H2 Z" fill="#ca7141" stroke="#7a4524" stroke-width="2" stroke-linejoin="round"/></svg>Coding sequence</span>
+      <span><svg viewBox="0 0 34 20" aria-hidden="true"><path d="M17 17 V7 M8 7 H26" stroke="#1f2937" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg>Terminator</span>
+    </p>
+  </section>
+
+  <!-- ===================== METHODS ===================== -->
+  <section id="methods" aria-labelledby="met-h">
+    <div class="panel reveal">
+      <h2 id="met-h" class="tab big orange" style="color:var(--teal)">Methods at a glance</h2>
+      <div class="grid2">
+        <div class="mcol">
+          <h3 class="tab fill comp" style="font-size:1.35rem">Computational</h3>
+          <div class="mstep"><b>PS Arm Design:</b> Phaseek (PS machine learning model)<small><a href="#ref-2">MohammadHosseini et al., bioRxiv (2025)</a></small></div>
+          <svg class="down" viewBox="0 0 22 34" aria-hidden="true"><path d="M11 2 V30 M3 22 L11 31 L19 22" stroke="#000" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="mstep"><b>Binder Design:</b> RFdiffusion (diffusion model)<small><a href="#ref-3">Watson et al., Nature (2023)</a></small></div>
+          <svg class="down" viewBox="0 0 22 34" aria-hidden="true"><path d="M11 2 V30 M3 22 L11 31 L19 22" stroke="#000" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="mstep"><b>Validation:</b> AlphaFold2 (filtering by pLDDT &gt; 80)<small><a href="#ref-4">Jumper et al., Nature (2021)</a></small></div>
+          <svg class="down" viewBox="0 0 22 34" aria-hidden="true"><path d="M11 2 V30 M3 22 L11 31 L19 22" stroke="#000" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="mstep"><b>Codon Optimization:</b> CodonTransformer<small><a href="#ref-5">Fallahpour et al., Nat. Commun. (2025)</a></small></div>
+        </div>
+        <div class="mcol">
+          <h3 class="tab fill exp" style="font-size:1.35rem">Experimental</h3>
+          <div class="mstep"><b>Fragment Amplification:</b> PCR</div>
+          <svg class="down" viewBox="0 0 22 34" aria-hidden="true"><path d="M11 2 V30 M3 22 L11 31 L19 22" stroke="#000" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="mstep"><b>Genetic Construction:</b> Golden Gate Assembly</div>
+          <svg class="down" viewBox="0 0 22 34" aria-hidden="true"><path d="M11 2 V30 M3 22 L11 31 L19 22" stroke="#000" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="fork">
+            <div class="host ecoli"><em>E. coli</em><b>Co-transformation</b>of 2 plasmids into BL21*<br><b style="display:inline">Induction:</b> IPTG</div>
+            <div class="host yeast"><em>S. cerevisiae</em><b>Genome integration</b>into BY4700/BY4709<br><b style="display:inline">Induction:</b> galactose</div>
+          </div>
+          <svg class="down" viewBox="0 0 22 34" aria-hidden="true"><path d="M11 2 V30 M3 22 L11 31 L19 22" stroke="#000" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="mstep"><b>Validation:</b> Fluorescence Microscopy</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== APPLICATIONS ===================== -->
+  <section id="applications" aria-labelledby="app-h">
+    <div class="panel reveal">
+      <h2 id="app-h" class="tab big orange">Future applications</h2>
+
+      <div class="app">
+        <h3 class="apphead">Dual-targeting antimicrobial peptides (AMPs)</h3>
+        <div class="figgrid" style="--c1:3.6fr;--c2:8.3fr">
+          <div class="col" style="--ref:3.55"><img class="fig" src="assets/poster/amp-row.webp" width="730" height="290" style="--w:3.65" alt="Construct: T7 promoter, RBS, a binder fused to an antimicrobial peptide (AMP), terminator." loading="lazy" decoding="async"><img class="fig" src="assets/poster/amp-cell.webp" width="329" height="179" style="--w:1.65" alt="A bacterial cell carrying the plasmid." loading="lazy" decoding="async"></div>
+          <div class="flowrow" style="--cols:2.5fr auto 2.45fr auto 3.35fr;width:100%">
+            <figure><img class="fig" src="assets/poster/amp-c1.webp" width="500" height="290" style="--w:2.5" alt="A membrane protein sitting in a lipid bilayer." loading="lazy" decoding="async"></figure>
+            <div class="arrow" aria-hidden="true"><span>Binding</span><svg class="h" viewBox="0 0 92 20"><path d="M2 10 H82" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M72 3 L85 10 L72 17" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="v" viewBox="0 0 20 54"><path d="M10 2 V44" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M3 35 L10 48 L17 35" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <figure><img class="fig" src="assets/poster/amp-c2.webp" width="500" height="290" style="--w:2.5" alt="The binder and AMP fusion bound to the membrane protein." loading="lazy" decoding="async"></figure>
+            <div class="arrow" aria-hidden="true"><span>Disruption</span><svg class="h" viewBox="0 0 92 20"><path d="M2 10 H82" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M72 3 L85 10 L72 17" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="v" viewBox="0 0 20 54"><path d="M10 2 V44" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M3 35 L10 48 L17 35" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <figure><img class="fig" src="assets/poster/amp-c3.webp" width="670" height="559" style="--w:3.35" alt="The disrupted membrane." loading="lazy" decoding="async"></figure>
+          </div>
+        </div>
+        <p class="caption">PeptArm system can be adapted for <b>membrane-disruptive AMPs</b>, increasing their specificity and efficacy.</p>
+      </div>
+
+      <div class="app">
+        <h3 class="apphead">Tag-free purification of endogenous proteins</h3>
+        <div class="figgrid" style="--c1:3.8fr;--c2:7.2fr">
+          <div class="col" style="--ref:3.8"><img class="fig" src="assets/poster/pur-row1.webp" width="760" height="280" style="--w:3.8" alt="Construct: T7 promoter, RBS, a binder fused to a purification tag, terminator." loading="lazy" decoding="async"><img class="fig" src="assets/poster/pur-row2.webp" width="760" height="300" style="--w:3.8" alt="The endogenous protein of interest (POI) at its native locus on the chromosome, untagged." loading="lazy" decoding="async"><img class="fig" src="assets/poster/pur-cell.webp" width="329" height="190" style="--w:1.65" alt="A bacterial cell carrying the plasmid." loading="lazy" decoding="async"></div>
+          <div class="flowrow" style="--cols:2.8fr auto auto auto 2.7fr;width:100%">
+            <figure><img class="fig" src="assets/poster/pur-c1.webp" width="559" height="419" style="--w:2.8" alt="The peptide binder with its purification tag captures the untagged protein of interest." loading="lazy" decoding="async"></figure>
+            <div class="arrow" aria-hidden="true"><span></span><svg class="h" viewBox="0 0 92 20"><path d="M2 10 H82" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M72 3 L85 10 L72 17" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="v" viewBox="0 0 20 54"><path d="M10 2 V44" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M3 35 L10 48 L17 35" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <figure class="colfig"><img class="fig" src="assets/poster/pur-c2.webp" width="192" height="490" style="--w:0.96" alt="A chromatography column." loading="lazy" decoding="async"><figcaption>Chromatography</figcaption></figure>
+            <div class="arrow" aria-hidden="true"><span></span><svg class="h" viewBox="0 0 92 20"><path d="M2 10 H82" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M72 3 L85 10 L72 17" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="v" viewBox="0 0 20 54"><path d="M10 2 V44" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M3 35 L10 48 L17 35" stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <figure><img class="fig" src="assets/poster/pur-c3.webp" width="540" height="379" style="--w:2.7" alt="The purified endogenous protein in a tube." loading="lazy" decoding="async"></figure>
+          </div>
+        </div>
+        <p class="caption">PeptArm can enable <b>tag-free protein purification</b>, aiming to leave the product native and scarless.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== REFERENCES ===================== -->
+  <section id="references" aria-labelledby="ref-h">
+    <div class="panel reveal">
+      <h2 id="ref-h" class="tab big" style="color:var(--arm)">Resources &amp; references</h2>
+
+      <div class="rcards" id="rcards">
+        <a class="rcard" href="https://doi.org/10.1101/2025.01.27.635039" target="_blank" rel="noopener">
+          <span class="k">Preprint</span>
+          <span class="t">Phaseek on bioRxiv</span>
+          <span class="s">A hybrid model for multiscale prediction and generation of phase separating protein regions</span>
+        </a>
+      </div>
+
+      <p class="subh">Cited on the poster</p>
+      <ol class="refs" id="refList">
+        <li id="ref-1"><span class="num">1</span>
+          <div class="cite">Garabedian MV, Wang W, Dabdoub JB, <i>et al.</i> Designer membraneless organelles sequester native factors for control of cell behavior. <i>Nat. Chem. Biol.</i> <b>17</b>, 998&ndash;1007 (2021).<br><a class="doi" href="https://doi.org/10.1038/s41589-021-00840-4" target="_blank" rel="noopener">doi:10.1038/s41589-021-00840-4</a></div>
+          <button class="copy" type="button">Copy</button></li>
+        <li id="ref-2"><span class="num">2</span>
+          <div class="cite">MohammadHosseini AM, Teimouri H, Cheraghali AM, <i>et al.</i> A hybrid model for multiscale prediction and generation of phase separating protein regions. <i>bioRxiv</i> 2025.01.27.635039 (2025). <span class="tag">Preprint</span><br><a class="doi" href="https://doi.org/10.1101/2025.01.27.635039" target="_blank" rel="noopener">doi:10.1101/2025.01.27.635039</a></div>
+          <button class="copy" type="button">Copy</button></li>
+        <li id="ref-3"><span class="num">3</span>
+          <div class="cite">Watson JL, Juergens D, Bennett NR, <i>et al.</i> De novo design of protein structure and function with RFdiffusion. <i>Nature</i> <b>620</b>, 1089&ndash;1100 (2023).<br><a class="doi" href="https://doi.org/10.1038/s41586-023-06415-8" target="_blank" rel="noopener">doi:10.1038/s41586-023-06415-8</a></div>
+          <button class="copy" type="button">Copy</button></li>
+        <li id="ref-4"><span class="num">4</span>
+          <div class="cite">Jumper J, Evans R, Pritzel A, <i>et al.</i> Highly accurate protein structure prediction with AlphaFold. <i>Nature</i> <b>596</b>, 583&ndash;589 (2021).<br><a class="doi" href="https://doi.org/10.1038/s41586-021-03819-2" target="_blank" rel="noopener">doi:10.1038/s41586-021-03819-2</a></div>
+          <button class="copy" type="button">Copy</button></li>
+        <li id="ref-5"><span class="num">5</span>
+          <div class="cite">Fallahpour A, Gureghian V, Filion GJ, Lindner AB, Pandi A. CodonTransformer: a multispecies codon optimizer using context-aware neural networks. <i>Nat. Commun.</i> <b>16</b>, 3205 (2025).<br><a class="doi" href="https://doi.org/10.1038/s41467-025-58588-7" target="_blank" rel="noopener">doi:10.1038/s41467-025-58588-7</a></div>
+          <button class="copy" type="button">Copy</button></li>
+      </ol>
+
+      <p class="subh">Binder systems also tested</p>
+      <ol class="refs" start="6">
+        <li id="ref-6"><span class="num">6</span>
+          <div class="cite">G&ouml;tzke H, Kilisch M, Mart&iacute;nez-Carranza M, <i>et al.</i> The ALFA-tag is a highly versatile tool for nanobody-based bioscience applications. <i>Nat. Commun.</i> <b>10</b>, 4403 (2019).<br><a class="doi" href="https://doi.org/10.1038/s41467-019-12301-7" target="_blank" rel="noopener">doi:10.1038/s41467-019-12301-7</a></div>
+          <button class="copy" type="button">Copy</button></li>
+        <li id="ref-7"><span class="num">7</span>
+          <div class="cite">Thompson KE, Bashor CJ, Lim WA, Keating AE. SYNZIP protein interaction toolbox: in vitro and in vivo specifications of heterospecific coiled-coil interaction domains. <i>ACS Synth. Biol.</i> <b>1</b>, 118&ndash;129 (2012).<br><a class="doi" href="https://doi.org/10.1021/sb200015u" target="_blank" rel="noopener">doi:10.1021/sb200015u</a></div>
+          <button class="copy" type="button">Copy</button></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact" aria-labelledby="con-h">
+    <div class="panel reveal">
+      <h2 id="con-h" class="tab big" style="color:var(--green)">Contact &amp; acknowledgements</h2>
+      <p class="lead"><b>Amir M. Cheraghali</b> and <b>Amir Pandi</b><br>INSERM U1338 (ERL) &middot; Department of Computational, Quantitative and Synthetic Biology (CQSB) &middot; UMR 7238, CNRS-Sorbonne Universit&eacute;, Paris, France</p>
+      <p id="findus">Come and find us at the poster to talk about PeptArm.</p>
+      <div class="contact-links" id="contactLinks"></div>
+      <p class="note" id="funding" hidden></p>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Poster companion page &middot; Global Biofoundry Alliance meeting, Paris, November 2026</p>
+    <p>PeptArm &middot; INSERM U1338 &middot; CQSB &middot; CNRS-Sorbonne Universit&eacute;</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  document.documentElement.classList.add('js');
+
+  /* ----------------------------------------------------------------------
+     EDIT HERE: anything left empty ("") is simply not shown on the page.
+     ---------------------------------------------------------------------- */
+  var SITE = {
+    email:    "amirmohammad.cheraghali@inserm.fr",
+    website:  "https://www.elis-labs.org/pandi/",
+    github:   "",                          // e.g. "https://github.com/your-name/peptarm"
+    colab:    "",                          // Phaseek Google Colab notebook link
+    funding:  "",                          // e.g. "This work was supported by ..."
+    posterPdf: "PeptArm_Poster_GBA.pdf"    // put this file next to index.html to show the download buttons
+  };
+
+  /* ---- contact / resources, built from SITE ---- */
+  function addBtn(parent, href, label, cls) {
+    var a = document.createElement('a'); a.className = cls || 'btn'; a.href = href; a.textContent = label;
+    if (/^https?:/.test(href)) { a.target = '_blank'; a.rel = 'noopener'; }
+    parent.appendChild(a); return a;
+  }
+  function addCard(parent, href, kind, title, sub) {
+    var a = document.createElement('a'); a.className = 'rcard'; a.href = href; a.target = '_blank'; a.rel = 'noopener';
+    a.innerHTML = '<span class="k"></span><span class="t"></span><span class="s"></span>';
+    a.children[0].textContent = kind; a.children[1].textContent = title; a.children[2].textContent = sub;
+    parent.appendChild(a);
+  }
+  var links = document.getElementById('contactLinks'), cards = document.getElementById('rcards');
+  if (SITE.email)   addBtn(links, 'mailto:' + SITE.email, 'Email us');
+  if (SITE.website) addBtn(links, SITE.website, 'Lab website');
+  if (SITE.github)  { addBtn(links, SITE.github, 'GitHub'); addCard(cards, SITE.github, 'Code', 'GitHub repository', 'Code and materials'); }
+  if (SITE.colab)   addCard(cards, SITE.colab, 'Notebook', 'Phaseek on Google Colab', 'Predict LLPS scores and generate peptides');
+  if (SITE.funding) { var f = document.getElementById('funding'); f.textContent = SITE.funding; f.hidden = false; }
+
+  /* ---- poster download buttons only appear when the PDF is really there ---- */
+  if (SITE.posterPdf && window.fetch && /^https?:/.test(location.protocol)) {
+    fetch(SITE.posterPdf, { method: 'HEAD' }).then(function (r) {
+      if (!r.ok) return;
+      ['posterBtn', 'posterBtn2'].forEach(function (id) {
+        var b = document.getElementById(id); if (b) { b.href = SITE.posterPdf; b.hidden = false; }
+      });
+      addCard(cards, SITE.posterPdf, 'Poster', 'Download the poster', 'PDF, A0');
+    }).catch(function () {});
+  }
+
+  /* ---- copy-citation buttons ---- */
+  document.querySelectorAll('.refs .copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var cite = btn.parentNode.querySelector('.cite'), doi = cite.querySelector('.doi');
+      var txt = cite.innerText.replace(/\s*Preprint\s*/g, ' ').replace(/\n/g, ' ').trim();
+      if (doi) txt = txt.replace(doi.innerText, '').trim() + ' https://doi.org/' + doi.innerText.replace(/^doi:/, '');
+      function done() { var old = btn.textContent; btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = old; }, 1400); }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done, done); else done();
+    });
+  });
+
+  /* ---- scroll reveal + active nav pill ---- */
+  var rev = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    rev.forEach(function (el) { io.observe(el); });
+    var pills = {}; document.querySelectorAll('.nav .pill').forEach(function (p) { pills[p.getAttribute('href').slice(1)] = p; });
+    var spy = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting && pills[e.target.id]) {
+          Object.keys(pills).forEach(function (k) { pills[k].removeAttribute('aria-current'); });
+          pills[e.target.id].setAttribute('aria-current', 'true');
+        }
+      });
+    }, { rootMargin: '-35% 0px -55% 0px' });
+    ['overview', 'results', 'methods', 'applications', 'references'].forEach(function (id) {
+      var s = document.getElementById(id); if (s) spy.observe(s);
+    });
+  } else { rev.forEach(function (el) { el.classList.add('in'); }); }
+})();
+</script>
+</body>
+</html>
